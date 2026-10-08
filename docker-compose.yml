@@ -1,0 +1,25 @@
+version: '3.8'
+
+services:
+  ptp-monitor:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: ptp-linkpulse
+    restart: unless-stopped
+    ports:
+      - "3000:3000"
+    environment:
+      - NODE_ENV=production
+      - PORT=3000
+      - DATA_DIR=/app/data
+      - TELEGRAM_BOT_TOKEN=${TELEGRAM_BOT_TOKEN:-}
+      - TELEGRAM_CHAT_ID=${TELEGRAM_CHAT_ID:-}
+      - TAILSCALE_FUNNEL_URL=${TAILSCALE_FUNNEL_URL:-https://ptp-monitor.tailscale.net}
+    volumes:
+      # Persistent storage volume for devices, Telegram settings, and billing data
+      - ptp_data:/app/data
+
+volumes:
+  ptp_data:
+    name: ptp_linkpulse_data

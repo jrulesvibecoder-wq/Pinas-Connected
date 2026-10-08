@@ -1,0 +1,6 @@
+{
+  "name": "PTP LinkPulse - Wireless Link Monitor & Alerts",
+  "description": "Point-to-point link speed monitoring, Telegram Bot alerts for throughput drops, client billing due date reminders, and Tailscale Funnel webhook integration.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
